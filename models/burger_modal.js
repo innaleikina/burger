@@ -1,10 +1,15 @@
 var orm = require("../config/orm.js");
 
-var burger = {
+var burger_modal = {
     selectAll: function(cb) {
       orm.selectAll("burgers", function(res) {
         cb(res);
       });
+    },
+    insertOne: function(colName, vals, cb){
+      orm.inserOne("burgers",colName, vals, function(res){
+        cb(res);
+      })
     }
 }
 
@@ -14,4 +19,4 @@ var burger = {
 
 
   // Export the database functions for the controller (catsController.js).
-module.exports = burger;
+module.exports = burger_modal;

@@ -1,7 +1,19 @@
-<h1> Hello </h1>
+<h1> Please Enjoy a Burger! </h1>
 
 <ul>
   {{#each burgers}}
-    <p> {{this.burger_name}}</p>
+
+    <p> {{this.id}} {{this.burger_name}}</p>
   {{/each}}
 </ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burger">Burger Name:</label>
+    <input type="text" id="burger" name="name">
+  </div>
+
+  <button id="submit-burger" type="submit">Add Your Burger</button>
+</form>

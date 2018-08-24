@@ -2,7 +2,7 @@ var connection = require("./connection.js");
 
 var orm = {
     selectAll: selectAll,
-    // insertOne: insertOne,
+    insertOne: insertOne,
     // updateALl: updateAll
 }
 
@@ -12,6 +12,16 @@ function selectAll(tableName, cb) {
         if (err) throw err;
         console.log(result);
         cb(result);
+    })
+}
+
+function insertOne(tableName, colName, vals, cb) {
+    var queryString = "INSERT INTO ?? (?? , ??) VALUE (?) )";
+    connection.query(queryString, tableName, colName, vals, function (err, result) {
+        if (err) {
+            throw err;
+        }
+       cb(result);
     })
 }
 
