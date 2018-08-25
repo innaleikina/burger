@@ -2,8 +2,9 @@ var connection = require("./connection.js");
 
 var orm = {
     selectAll: selectAll,
+
     insertOne: insertOne,
-    // updateALl: updateAll
+    updateOne: updateOne
 }
 
 function selectAll(tableName, cb) {
@@ -15,18 +16,25 @@ function selectAll(tableName, cb) {
     })
 }
 
-function insertOne(tableName, colName, vals, cb) {
-    var queryString = "INSERT INTO ?? (?? , ??) VALUE (?) )";
-    connection.query(queryString, tableName, colName, vals, function (err, result) {
+
+
+function insertOne(vals, cb) {
+    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUE (? , ?)";
+    connection.query(queryString, vals, function (err, result) {
         if (err) {
             throw err;
         }
-       cb(result);
+        cb(result);
     })
 }
 
-// function insertOne(){
 
-// }
+function updateOne(vals, cb) {
+    var queryString = "UPDATE burgers SET devoured = true WHERE id=?;"
+    connection.query(queryString, vals, function (err, result) {
+        if (err) throw err;
+        cb(result);
+    })
+}
 
 module.exports = orm;

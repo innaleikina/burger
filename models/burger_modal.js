@@ -6,17 +6,16 @@ var burger_modal = {
         cb(res);
       });
     },
-    insertOne: function(colName, vals, cb){
-      orm.inserOne("burgers",colName, vals, function(res){
+    insertOne: function(vals, cb){
+      orm.insertOne([vals, false ], function(res){
         cb(res);
+      })
+    },
+    updateOne: function(vals,cb){
+      orm.updateOne(vals,function(res){
+        cb(res)
       })
     }
 }
 
-// orm.selectAll("burgers","burger_name", function(result){
-//     console.log(result);
-// });
-
-
-  // Export the database functions for the controller (catsController.js).
 module.exports = burger_modal;

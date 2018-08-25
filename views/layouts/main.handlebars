@@ -3,11 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 		<link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
+        <link rel="stylesheet" href="/assets/css/normalize.css" type="text/css" />
 		<title>Burger Consumer</title>
 		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="/assets/js/burgers.js"></script>
+		
 	</head>
 	<body>
-		{{{ body }}}
+         <div class="wrap-all">
+		  {{{ body }}}
+		  <div class="link-btns">
+		    <a href="/api/burgers/"><button class="style-btn" id="api-btn"> api </button></a>
+			 <a href="https://github.com/innaleikina/burger"><button class="style-btn" id="api-btn"> Github</button></a>
+			 <p> Made by Inna Leikina</p>
+		  </div>
+         </div>
+         <script src="/assets/js/burgers.js"></script>
 	</body>
 </html>

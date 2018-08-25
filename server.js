@@ -3,9 +3,7 @@ var bodyParser = require("body-parser");
 
 var app = express();
 
-var routes = require("./controller/burgers_controller.js");
 
-app.use(routes);
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080;
@@ -16,6 +14,10 @@ app.use(express.static("public"));
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+var routes = require("./controller/burgers_controller.js");
+
+app.use(routes);
 
 var exphbs = require("express-handlebars");
 
