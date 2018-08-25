@@ -15,12 +15,14 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//import routes from burgers_controller
 var routes = require("./controller/burgers_controller.js");
 
 app.use(routes);
 
 var exphbs = require("express-handlebars");
 
+//set up handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
